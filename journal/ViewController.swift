@@ -25,6 +25,13 @@ class ViewController: UIViewController {
         title = "My Journals"
         view.backgroundColor = .white
         
+        let simon = Journal(id: 2758, title: "Happy", description: "I am feeling happy :)")
+        let allen = Journal(id: 4, title: "Sad", description: "I am feeling sad :(")
+        let irene = Journal(id: 598, title: "Excited", description: "I am feeling so excited!")
+        let jake = Journal(id: 3, title: "Homesick", description: "I am feeling very homesick")
+        let noah = Journal(id: 285, title: "Stressed", description: "I feel very stressed and overwhelmed")
+        journals = [simon, allen, irene, jake, noah]
+        
         if #available(iOS 10.0, *) {
             journalTable.refreshControl = refresh
         } else {
