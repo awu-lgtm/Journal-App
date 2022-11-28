@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class ViewController: UIViewController {
     
@@ -33,6 +34,17 @@ class ViewController: UIViewController {
         journalTable.delegate = self
         journalTable.dataSource = self
         journalTable.register(JournalViewCell.self, forCellReuseIdentifier:"journalCell")
+        
+        journalTable.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(journalTable)
+        
+        journalTable.snp.makeConstraints { (make) -> Void in
+            make.width.equalToSuperview().multipliedBy(0.5)
+            make.height.equalToSuperview().offset(-70)
+            make.centerY.equalToSuperview()
+            make.centerX.equalTo(view)
+        }
     }
 
 

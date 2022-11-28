@@ -16,15 +16,13 @@ class JournalViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        contentView.backgroundColor = .black
+        contentView.backgroundColor = .white
 
         contentView.clipsToBounds = true
         
-        id.textColor = .white
-        des.textColor = .white
-        title.textColor = .white
+//        des.textColor = .white
+//        title.textColor = .white
         
-        id.translatesAutoresizingMaskIntoConstraints = false
         des.translatesAutoresizingMaskIntoConstraints = false
         title.translatesAutoresizingMaskIntoConstraints = false
 
@@ -32,19 +30,16 @@ class JournalViewCell: UITableViewCell {
         contentView.addSubview(des)
         contentView.addSubview(title)
         
-        id.snp.makeConstraints { (make) -> Void in
-            make.bottom.equalTo(contentView).offset(-15)
-            make.left.equalTo(contentView).offset(20)
-        }
-        des.snp.makeConstraints { (make) -> Void in
-            make.height.equalTo(contentView).multipliedBy(0.3)
-            make.centerY.equalTo(contentView)
-            make.left.equalTo(id)
-        }
         title.snp.makeConstraints { (make) -> Void in
             make.top.equalTo(contentView).offset(15)
-            make.left.equalTo(id)
+            make.left.equalTo(contentView).offset(15)
         }
+        
+        des.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(title)
+            make.left.equalTo(title)
+        }
+
     }
     
     override func layoutSubviews() {
@@ -54,13 +49,8 @@ class JournalViewCell: UITableViewCell {
 
     
     func configure(journal: Journal) {
-//        id.text = "ID: \(String(ticket.id))"
-//        des.text = ticket.description
-//        var not = ""
-//        if !ticket.done {
-//            not = " not"
-//        }
-//        done.text = "Status:\(not) done"
+        des.text = journal.description
+        title.text = journal.title
     }
 
     required init?(coder: NSCoder) {

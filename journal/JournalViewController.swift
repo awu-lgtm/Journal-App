@@ -31,7 +31,23 @@ class JournalViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        header.text = journal.title
+        des.text = journal.description
+        
+        header.font = .boldSystemFont(ofSize: 20)
+        
+        header.translatesAutoresizingMaskIntoConstraints = false
+        des.translatesAutoresizingMaskIntoConstraints = false
+        
+        header.snp.makeConstraints { (make) -> Void in
+            make.top.equalToSuperview().offset(70)
+            make.left.equalToSuperview().offset(70)
+        }
+        
+        des.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(des).offset(70)
+            make.left.equalTo(des)
+        }
     }
     
 
