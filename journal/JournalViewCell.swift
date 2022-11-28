@@ -1,6 +1,6 @@
 //
 //  JournalViewCell.swift
-//  
+//
 //
 //  Created by Allen Wu on 11/27/22.
 //
