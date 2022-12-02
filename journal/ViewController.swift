@@ -15,15 +15,16 @@ class ViewController: UIViewController {
     let refresh = UIRefreshControl()
     let journalTable = UITableView()
     let favorite = UIButton()
-    
-    
     let add = UIButton()
+    
     var index: Int = 0
     
     var journals: [Journal] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        add.setImage(UIImage(named: "add"), for: .normal)
         
         swiftAnimationView = .init(name: "heart")
         view.addSubview(swiftAnimationView)

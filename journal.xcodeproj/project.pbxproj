@@ -10,6 +10,7 @@
 		337779F634BEC3F70206FB03 /* Pods_journal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDA1E455CE81E147895E84E6 /* Pods_journal.framework */; };
 		B61458AB293452850080D1F9 /* Journal.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61458AA293452850080D1F9 /* Journal.swift */; };
 		B61458AF2934594C0080D1F9 /* JournalViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61458AE2934594C0080D1F9 /* JournalViewCell.swift */; };
+		B6726D922939A18B004456F1 /* Overlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6726D912939A18B004456F1 /* Overlay.swift */; };
 		B6864DDC2935D68900FBE83F /* JournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61458AC293454840080D1F9 /* JournalViewController.swift */; };
 		B69EF5782934514600A0C14F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69EF5772934514600A0C14F /* AppDelegate.swift */; };
 		B69EF57A2934514600A0C14F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69EF5792934514600A0C14F /* SceneDelegate.swift */; };
@@ -25,6 +26,7 @@
 		B61458AA293452850080D1F9 /* Journal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Journal.swift; sourceTree = "<group>"; };
 		B61458AC293454840080D1F9 /* JournalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalViewController.swift; sourceTree = "<group>"; };
 		B61458AE2934594C0080D1F9 /* JournalViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalViewCell.swift; sourceTree = "<group>"; };
+		B6726D912939A18B004456F1 /* Overlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Overlay.swift; sourceTree = "<group>"; };
 		B69EF5742934514600A0C14F /* journal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = journal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B69EF5772934514600A0C14F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B69EF5792934514600A0C14F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 				B69EF5772934514600A0C14F /* AppDelegate.swift */,
 				B69EF5792934514600A0C14F /* SceneDelegate.swift */,
 				B69EF57B2934514600A0C14F /* ViewController.swift */,
+				B6726D912939A18B004456F1 /* Overlay.swift */,
 				B61458AC293454840080D1F9 /* JournalViewController.swift */,
 				B61458AE2934594C0080D1F9 /* JournalViewCell.swift */,
 				B61458AA293452850080D1F9 /* Journal.swift */,
@@ -219,6 +222,7 @@
 				B69EF57C2934514600A0C14F /* ViewController.swift in Sources */,
 				B61458AB293452850080D1F9 /* Journal.swift in Sources */,
 				B69EF5782934514600A0C14F /* AppDelegate.swift in Sources */,
+				B6726D922939A18B004456F1 /* Overlay.swift in Sources */,
 				B6864DDC2935D68900FBE83F /* JournalViewController.swift in Sources */,
 				B69EF57A2934514600A0C14F /* SceneDelegate.swift in Sources */,
 			);
