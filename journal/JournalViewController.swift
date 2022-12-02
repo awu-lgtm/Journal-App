@@ -9,7 +9,7 @@ import UIKit
 //import DropDown
 import iOSDropDown
 
-class JournalViewController: UIViewController {
+class JournalViewController: UIViewController { // this should extend Entry
     
     weak var delegate: ChangeJournalDelegate?
     

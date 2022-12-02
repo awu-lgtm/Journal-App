@@ -10,24 +10,25 @@ import UIKit
 class Overlay: UIViewController {
     var button: UIButton!
     
-//    let overlay = OverlayWindow()
-//
-//    init() {
-//        super.init(nibName: nil, bundle: nil)
-//        window.windowLevel = CGFloat.max
-//        window.hidden = false
-//        window.rootViewController = self
-//        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardDidShow:", name: UIKeyboardDidShowNotification, object: nil)
-//    }
-//
-//    required init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
+    let add = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.backgroundColor = UIColor(red: 0.992, green: 0.988, blue: 0.863, alpha: 1)
+        setUpAddButton()
 
         // Do any additional setup after loading the view.
+    }
+    
+    func setUpAddButton() {
+        add.setImage(UIImage(named: "add"), for: .normal)
+        add.addTarget(self, action: #selector(newEntry), for: .touchUpInside)
+    }
+        
+    @objc
+    func newEntry() {
+        navigationController?.setViewControllers([Feeling()], animated: true)
     }
     
 

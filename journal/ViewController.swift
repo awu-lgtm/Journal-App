@@ -60,6 +60,13 @@ class ViewController: UIViewController {
             make.centerX.equalToSuperview()
             make.top.equalToSuperview().offset(120)
         }
+        
+        for family in UIFont.familyNames {
+                print("family:", family)
+                for font in UIFont.fontNames(forFamilyName: family) {
+                    print("font:", font)
+                }
+            }
     }
 
 
