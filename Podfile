@@ -9,5 +9,8 @@ target 'journal' do
   pod 'SnapKit'
   pod 'Alamofire'
   pod 'lottie-ios'
+  pod 'iOSDropDown', '~> 0.4'
+  pod 'DropDown', '2.3.13'
+  pod 'LottieButton'
 
 end

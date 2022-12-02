@@ -7,11 +7,14 @@
 
 import UIKit
 import SnapKit
+import Lottie
 
 class ViewController: UIViewController {
     
+    var swiftAnimationView: LottieAnimationView!
     let refresh = UIRefreshControl()
     let journalTable = UITableView()
+    let favorite = UIButton()
     
     
     let add = UIButton()
@@ -22,14 +25,18 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        swiftAnimationView = .init(name: "heart")
+        view.addSubview(swiftAnimationView)
+        
+        
         title = "My Journals"
         view.backgroundColor = .white
         
-        let simon = Journal(id: 2758, title: "Happy", description: "I am feeling happy :)")
-        let allen = Journal(id: 4, title: "Sad", description: "I am feeling sad :(")
-        let irene = Journal(id: 598, title: "Excited", description: "I am feeling so excited!")
-        let jake = Journal(id: 3, title: "Homesick", description: "I am feeling very homesick")
-        let noah = Journal(id: 285, title: "Stressed", description: "I feel very stressed and overwhelmed")
+        let simon = Journal(id: 2758, title: "Happy", description: "I am feeling happy :)", mood: "happy")
+        let allen = Journal(id: 4, title: "Sad", description: "I am feeling sad :(", mood: "sad")
+        let irene = Journal(id: 598, title: "Excited", description: "I am feeling so excited!", mood: "excited")
+        let jake = Journal(id: 3, title: "Homesick", description: "I am feeling very homesick", mood: "homesick")
+        let noah = Journal(id: 285, title: "Stressed", description: "I feel very stressed and overwhelmed", mood: "stressed")
         journals = [simon, allen, irene, jake, noah]
         
         if #available(iOS 10.0, *) {
@@ -47,10 +54,10 @@ class ViewController: UIViewController {
         view.addSubview(journalTable)
         
         journalTable.snp.makeConstraints { (make) -> Void in
-            make.width.equalToSuperview().multipliedBy(0.5)
-            make.height.equalToSuperview().offset(-70)
-            make.centerY.equalToSuperview()
-            make.centerX.equalTo(view)
+            make.width.equalToSuperview().multipliedBy(0.8)
+            make.height.equalToSuperview().offset(-100)
+            make.centerX.equalToSuperview()
+            make.top.equalToSuperview().offset(120)
         }
     }
 
@@ -59,7 +66,7 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 110
+        return self.view.frame.size.height * 0.15
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
