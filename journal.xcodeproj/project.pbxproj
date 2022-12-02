@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		337779F634BEC3F70206FB03 /* Pods_journal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDA1E455CE81E147895E84E6 /* Pods_journal.framework */; };
+		52B0F07A2939AB1600BB5BCC /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B0F0792939AB1600BB5BCC /* HomePageViewController.swift */; };
 		B61458AB293452850080D1F9 /* Journal.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61458AA293452850080D1F9 /* Journal.swift */; };
 		B61458AF2934594C0080D1F9 /* JournalViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61458AE2934594C0080D1F9 /* JournalViewCell.swift */; };
 		B6726D922939A18B004456F1 /* Overlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6726D912939A18B004456F1 /* Overlay.swift */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		32C3811FF9A2518E7F4918B3 /* Pods-journal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-journal.release.xcconfig"; path = "Target Support Files/Pods-journal/Pods-journal.release.xcconfig"; sourceTree = "<group>"; };
+		52B0F0792939AB1600BB5BCC /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		57B6F4C07F9B1155B9A56A01 /* Pods-journal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-journal.debug.xcconfig"; path = "Target Support Files/Pods-journal/Pods-journal.debug.xcconfig"; sourceTree = "<group>"; };
 		B61458AA293452850080D1F9 /* Journal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Journal.swift; sourceTree = "<group>"; };
 		B61458AC293454840080D1F9 /* JournalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalViewController.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 				B69EF57B2934514600A0C14F /* ViewController.swift */,
 				B6726D912939A18B004456F1 /* Overlay.swift */,
 				B61458AC293454840080D1F9 /* JournalViewController.swift */,
+				52B0F0792939AB1600BB5BCC /* HomePageViewController.swift */,
 				B61458AE2934594C0080D1F9 /* JournalViewCell.swift */,
 				B61458AA293452850080D1F9 /* Journal.swift */,
 				B69EF57D2934514600A0C14F /* Main.storyboard */,
@@ -222,6 +225,7 @@
 				B69EF57C2934514600A0C14F /* ViewController.swift in Sources */,
 				B61458AB293452850080D1F9 /* Journal.swift in Sources */,
 				B69EF5782934514600A0C14F /* AppDelegate.swift in Sources */,
+				52B0F07A2939AB1600BB5BCC /* HomePageViewController.swift in Sources */,
 				B6726D922939A18B004456F1 /* Overlay.swift in Sources */,
 				B6864DDC2935D68900FBE83F /* JournalViewController.swift in Sources */,
 				B69EF57A2934514600A0C14F /* SceneDelegate.swift in Sources */,

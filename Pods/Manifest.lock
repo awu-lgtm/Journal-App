@@ -1,24 +1,32 @@
 PODS:
   - Alamofire (5.6.2)
+  - DropDown (2.3.13)
+  - iOSDropDown (0.4.0)
   - lottie-ios (3.5.0)
   - SnapKit (5.6.0)
 
 DEPENDENCIES:
   - Alamofire
+  - DropDown (= 2.3.13)
+  - iOSDropDown (~> 0.4)
   - lottie-ios
   - SnapKit
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - DropDown
+    - iOSDropDown
     - lottie-ios
     - SnapKit
 
 SPEC CHECKSUMS:
   Alamofire: d368e1ff8a298e6dde360e35a3e68e6c610e7204
+  DropDown: 8a2116376c1981888557f72ec2ffc9a5e0e456ec
+  iOSDropDown: ce9daa584eaa5567cafc1b633e3cc7eb6d9cea42
   lottie-ios: c55158d67d0629a260625cc2ded2052b829e3c3e
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
 
-PODFILE CHECKSUM: 59b5aa1d913ea2b1e7011dd29c79c53bd148d92a
+PODFILE CHECKSUM: 45e02b553fee6a8ee98f7246deaf699e4d2c1e6b
 
 COCOAPODS: 1.11.3
