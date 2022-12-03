@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomePageViewController: UIViewController {
+class HomePageViewController: Overlay {
     
     var profileImageView = UIImageView()
     var titleLabel = UILabel()
@@ -15,7 +15,6 @@ class HomePageViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .opaqueSeparator
         // Do any additional setup after loading the view.
         
         titleLabel.text = "Remind me to be happy"

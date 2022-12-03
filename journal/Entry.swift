@@ -7,7 +7,7 @@
 
 import UIKit
 
-class Entry: UIViewController {
+class Entry: Overlay {
     
 //    let mood: String
 //
@@ -24,6 +24,9 @@ class Entry: UIViewController {
     let date = UILabel()
     let des = UITextView()
     
+    let titleMood = UILabel()
+    
+    let placeholder = UILabel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,32 +34,68 @@ class Entry: UIViewController {
         setUpBorder()
         setUpText()
         setUpEdit()
+        setUpTitle()
+    }
+    
+    func setUpTitle() {
+        titleMood.font = UIFont(name: "Verdana", size: 25)
+        titleMood.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(titleMood)
+        
+        titleMood.snp.makeConstraints { (make) -> Void in
+            make.centerX.equalToSuperview()
+            make.centerY.equalTo(add)
+        }
     }
     
     func setUpBorder() {
         border.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(border)
+        
+        border.snp.makeConstraints { (make) -> Void in
+            make.centerX.centerY.equalToSuperview()
+            make.height.equalToSuperview().multipliedBy(0.5)
+            make.width.equalToSuperview().multipliedBy(0.8)
+        }
     }
     
     func setUpText() {
-        header.font = .boldSystemFont(ofSize: 20)
-        des.font = .systemFont(ofSize: 15)
+        header.text = "i'm feeling \(titleMood.text ?? "...")"
+        
+        des.delegate = self
+        
+        header.font = UIFont(name: "Verdana", size: 25)
+        
+        let style = NSMutableParagraphStyle()
+        style.lineSpacing = 10
+        des.typingAttributes = [NSAttributedString.Key.font: UIFont(name: "Verdana", size: 18)!, NSAttributedString.Key.paragraphStyle: style]
+        
+        placeholder.text = "Enter some text..."
+        placeholder.font = UIFont(name: "Verdana", size: 18)
+        placeholder.sizeToFit()
+        des.addSubview(placeholder)
+        placeholder.frame.origin = CGPoint(x: 5, y: ((des.font?.pointSize) ?? 18) / 2)
+        placeholder.textColor = .lightGray
+        placeholder.isHidden = !des.text.isEmpty
         
         header.translatesAutoresizingMaskIntoConstraints = false
         des.translatesAutoresizingMaskIntoConstraints = false
+        
+        des.backgroundColor = .clear
         
         view.addSubview(header)
         view.addSubview(des)
         
         header.snp.makeConstraints { (make) -> Void in
-            make.top.equalToSuperview().offset(70)
-            make.left.equalToSuperview().offset(70)
+            make.top.equalTo(border).offset(30)
+            make.leading.equalTo(border).offset(30)
         }
         
         des.snp.makeConstraints { (make) -> Void in
             make.top.equalTo(header).offset(50)
-            make.left.equalTo(header)
-            make.width.equalToSuperview().multipliedBy(0.9)
-            make.height.equalToSuperview().multipliedBy(0.7)
+            make.leading.equalTo(header).offset(-5)
+            make.trailing.equalTo(border).offset(-30)
+            make.height.equalTo(border).multipliedBy(0.75)
         }
     }
     
@@ -119,6 +158,12 @@ class Entry: UIViewController {
     }
     */
 
+}
+
+extension Entry: UITextViewDelegate {
+    func textViewDidChange(_ textView: UITextView) {
+        placeholder.isHidden = !des.text.isEmpty
+    }
 }
 
 //protocol EntryDelegate: ViewController {

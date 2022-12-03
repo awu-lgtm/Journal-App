@@ -8,6 +8,16 @@
 import UIKit
 
 class NewEntry: Entry {
+    
+    init(mood: String) {
+        super.init(nibName: nil, bundle: nil)
+        
+        titleMood.text = mood
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

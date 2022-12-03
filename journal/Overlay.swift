@@ -24,6 +24,14 @@ class Overlay: UIViewController {
     func setUpAddButton() {
         add.setImage(UIImage(named: "add"), for: .normal)
         add.addTarget(self, action: #selector(newEntry), for: .touchUpInside)
+        
+        add.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(add)
+        
+        add.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(5)
+            make.trailing.equalToSuperview().offset(-50)
+        }
     }
         
     @objc
