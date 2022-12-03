@@ -100,6 +100,10 @@ class Entry: Overlay {
     }
     
     func setUpEdit() {
+        edit.setBackgroundImage(UIImage(named: "Edit box"), for: .normal)
+        edit.setTitleColor(.black, for: .normal)
+        edit.titleLabel?.font = UIFont(name: "Verdana", size: 18)
+        
         if (creation) {
             allowEdits()
             edit.setTitle("save", for: .normal)
@@ -111,15 +115,13 @@ class Entry: Overlay {
         }
         
         edit.translatesAutoresizingMaskIntoConstraints = false
-        edit.backgroundColor = .red
-        
         view.addSubview(edit)
         
         edit.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(header).offset(50)
-            make.right.equalToSuperview().offset(-50)
-            make.width.equalToSuperview().multipliedBy(0.1)
-            make.height.equalToSuperview().multipliedBy(0.02)
+            make.top.equalTo(border.snp.bottom).offset(20)
+            make.centerX.equalToSuperview()
+            make.width.equalToSuperview().multipliedBy(0.4)
+            make.height.equalToSuperview().multipliedBy(0.05)
         }
     }
     
