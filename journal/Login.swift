@@ -96,3 +96,5 @@ class Login: UIViewController {
     */
 
 }
+//
+//struct
