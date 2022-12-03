@@ -23,5 +23,5 @@ struct Journal: Codable {
 }
 
 struct Journals: Codable {
-    let journals: [Journal]
+    let entries: [Journal]
 }

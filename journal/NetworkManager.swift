@@ -13,10 +13,10 @@ class NetworkManager {
     
     static var auth = "Bearer "
 
-    static let host = "34.150.206.225"
+    static let host = "http://34.150.206.225"
 
     static func getAll(completion: @escaping (Journals) -> Void) {
-        let endpoint = "\(host)/api/entries"
+        let endpoint = "\(host)/api/entries/"
         
         let header: HTTPHeaders = [.authorization(bearerToken: auth)]
         
@@ -38,7 +38,7 @@ class NetworkManager {
 
 
     static func create(title: String, content: String, emotion: String, completion: @escaping (Journal) -> Void) {
-        let endpoint = "\(host)/api/entries"
+        let endpoint = "\(host)/api/entries/"
         let params = [
             "title": title,
             "content": content,
@@ -112,7 +112,7 @@ class NetworkManager {
     }
     
     static func login(username: String, password: String, completion: @escaping (User) -> Void) {
-        let endpoint = "\(host)/login"
+        let endpoint = "\(host)/login/"
         let params = [
             "email": username,
             "password": password,
@@ -136,7 +136,7 @@ class NetworkManager {
     }
     
     static func register(username: String, password: String, completion: @escaping (User) -> Void) {
-        let endpoint = "\(host)/register"
+        let endpoint = "\(host)/register/"
         let params = [
             "email": username,
             "password": password,

@@ -65,7 +65,7 @@ class ViewController: Overlay {
     
     func getJournals() {
         NetworkManager.getAll { journals in
-            self.journals = journals.journals
+            self.journals = journals.entries
             
             DispatchQueue.main.async {
                 self.journalTable.reloadData()
@@ -104,9 +104,9 @@ extension ViewController: UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            deleteJournal(id: journals[indexPath.row].id)
             journals.remove(at: indexPath.row)
             journalTable.beginUpdates()
-            deleteJournal(id: journals[indexPath.row].id)
             journalTable.deleteRows(at: [indexPath], with: .automatic)
             journalTable.endUpdates()
         }

@@ -31,6 +31,8 @@ class Login: Overlay {
         }
         
         setUpFields()
+        setUpLogin()
+        setUpSignUp()
         setUpConstraints()
 
         // Do any additional setup after loading the view.
@@ -52,13 +54,21 @@ class Login: Overlay {
     
     func setUpLogin() {
         login.setTitle("login", for: .normal)
-        login.setImage(UIImage(named: "button border"), for: .normal)
+        login.setBackgroundImage(UIImage(named: "button border"), for: .normal)
         login.addTarget(self, action: #selector(newLogin), for: .touchUpInside)
+        login.titleLabel?.textColor = .black
+        
+        login.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(login)
     }
     
     func setUpSignUp() {
         signUp.setTitle("sign up", for: .normal)
-        signUp.setImage(UIImage(named: "button border"), for: .normal)
+        signUp.setBackgroundImage(UIImage(named: "button border"), for: .normal)
+        signUp.addTarget(self, action: #selector(signUps), for: .touchUpInside)
+        
+        signUp.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(signUp)
     }
     
     @objc
@@ -69,19 +79,21 @@ class Login: Overlay {
     
     @objc
     func createAccount() {
-        if (username.text == nil || password.text == nil) {
+        if (username.text == "" || password.text == "") {
             return
         }
         NetworkManager.register(username: username.text ?? "", password: password.text ?? "") { user in
-            NetworkManager.auth = "Bearer \(user.session)"
+            NetworkManager.auth = "Bearer \(user.session_token)"
         }
+        navigationController?.setViewControllers([HomePageViewController()], animated: true)
     }
     
     @objc
     func newLogin() {
         NetworkManager.login(username: username.text ?? "", password: password.text ?? "") { user in
-            NetworkManager.auth = "Bearer \(user.session)"
+            NetworkManager.auth = "Bearer \(user.session_token)"
         }
+        navigationController?.setViewControllers([HomePageViewController()], animated: true)
     }
     
     func setUpConstraints() {
@@ -93,6 +105,20 @@ class Login: Overlay {
         NSLayoutConstraint.activate([
             password.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             password.topAnchor.constraint(equalTo: username.bottomAnchor, constant: 12),
+        ])
+        
+        NSLayoutConstraint.activate([
+            login.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 70),
+            login.topAnchor.constraint(equalTo: password.bottomAnchor, constant: 10),
+            login.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.3),
+            login.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.05)
+        ])
+        
+        NSLayoutConstraint.activate([
+            signUp.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -70),
+            signUp.topAnchor.constraint(equalTo: password.bottomAnchor, constant: 10),
+            signUp.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.3),
+            signUp.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.05)
         ])
     }
 

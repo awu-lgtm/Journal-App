@@ -31,6 +31,7 @@ class NewEntry: Entry {
         NetworkManager.create(title: header.text ?? "", content: des.text ?? "", emotion: titleMood.text ?? "happy") { journal in
             return
         }
+        navigationController?.setViewControllers([ViewController()], animated: true)
     }
     
 

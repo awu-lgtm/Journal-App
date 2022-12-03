@@ -8,9 +8,9 @@
 import Foundation
 
 class User: Decodable {
-    let session: String
+    let session_token: String
     
     enum CodingKeys: String, CodingKey {
-        case session
+        case session_token
     }
 }
