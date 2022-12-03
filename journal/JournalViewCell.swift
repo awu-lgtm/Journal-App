@@ -20,8 +20,12 @@ class JournalViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        contentView.backgroundColor = .white
+        contentView.backgroundColor = UIColor(red: 253/255, green: 236/255, blue: 210/255, alpha: 1)
+        
+        contentView.layer.borderColor = CGColor(red: 1, green: 185/255, blue: 180/255, alpha: 1)
+        contentView.layer.borderWidth = 1
 
+        contentView.layer.cornerRadius = 10
         contentView.clipsToBounds = true
         
 //        des.textColor = .white
@@ -29,6 +33,9 @@ class JournalViewCell: UITableViewCell {
         
         des.translatesAutoresizingMaskIntoConstraints = false
         title.translatesAutoresizingMaskIntoConstraints = false
+        
+        des.font = UIFont(name: "Verdana", size: 15)
+        title.font = UIFont(name: "Verdana", size: 15)
 
         contentView.addSubview(id)
         contentView.addSubview(des)
@@ -79,7 +86,7 @@ class JournalViewCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5))
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0))
     }
 
     

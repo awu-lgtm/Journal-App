@@ -15,7 +15,6 @@
 		B614ACBE293AF76300D482BF /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B614ACBD293AF76300D482BF /* NetworkManager.swift */; };
 		B614ACC0293AF96C00D482BF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B614ACBF293AF96C00D482BF /* User.swift */; };
 		B6726D922939A18B004456F1 /* Overlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6726D912939A18B004456F1 /* Overlay.swift */; };
-		B6726D942939A5FD004456F1 /* OverlayWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6726D932939A5FD004456F1 /* OverlayWindow.swift */; };
 		B6726D962939A87B004456F1 /* Feeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6726D952939A87B004456F1 /* Feeling.swift */; };
 		B6726D982939B4EB004456F1 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6726D972939B4EB004456F1 /* Entry.swift */; };
 		B6726D9A2939C450004456F1 /* NewEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6726D992939C450004456F1 /* NewEntry.swift */; };
@@ -39,7 +38,6 @@
 		B614ACBD293AF76300D482BF /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		B614ACBF293AF96C00D482BF /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B6726D912939A18B004456F1 /* Overlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Overlay.swift; sourceTree = "<group>"; };
-		B6726D932939A5FD004456F1 /* OverlayWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayWindow.swift; sourceTree = "<group>"; };
 		B6726D952939A87B004456F1 /* Feeling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feeling.swift; sourceTree = "<group>"; };
 		B6726D972939B4EB004456F1 /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 		B6726D992939C450004456F1 /* NewEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEntry.swift; sourceTree = "<group>"; };
@@ -111,7 +109,6 @@
 				B6726D952939A87B004456F1 /* Feeling.swift */,
 				B6726D972939B4EB004456F1 /* Entry.swift */,
 				B6726D992939C450004456F1 /* NewEntry.swift */,
-				B6726D932939A5FD004456F1 /* OverlayWindow.swift */,
 				B61458AC293454840080D1F9 /* JournalViewController.swift */,
 				52B0F0792939AB1600BB5BCC /* HomePageViewController.swift */,
 				B61458AE2934594C0080D1F9 /* JournalViewCell.swift */,
@@ -244,7 +241,6 @@
 			files = (
 				B6726D982939B4EB004456F1 /* Entry.swift in Sources */,
 				B6726D9A2939C450004456F1 /* NewEntry.swift in Sources */,
-				B6726D942939A5FD004456F1 /* OverlayWindow.swift in Sources */,
 				B614ACC0293AF96C00D482BF /* User.swift in Sources */,
 				B61458AF2934594C0080D1F9 /* JournalViewCell.swift in Sources */,
 				B69EF57C2934514600A0C14F /* ViewController.swift in Sources */,

@@ -92,7 +92,7 @@ class Login: Overlay {
 
         NSLayoutConstraint.activate([
             password.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            password.topAnchor.constraint(equalTo: username.bottomAnchor, constant: 10),
+            password.topAnchor.constraint(equalTo: username.bottomAnchor, constant: 12),
         ])
     }
 

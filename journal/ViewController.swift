@@ -9,13 +9,12 @@ import UIKit
 import SnapKit
 import Lottie
 
-class ViewController: UIViewController {
+class ViewController: Overlay {
     
     var swiftAnimationView: LottieAnimationView!
     let refresh = UIRefreshControl()
     let journalTable = UITableView()
     let favorite = UIButton()
-    let add = UIButton()
     
     var index: Int = 0
     
@@ -24,14 +23,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        add.setImage(UIImage(named: "add"), for: .normal)
-        
-//        swiftAnimationView = .init(name: "heart")
-//        view.addSubview(swiftAnimationView)
-        
-        
-        title = "My Journals"
-        view.backgroundColor = .white
+//        title = "My Journals"
         
         let simon = Journal(id: 2758, title: "Happy", content: "I am feeling happy :)", emotion: "happy")
         let allen = Journal(id: 4, title: "Sad", content: "I am feeling sad :(", emotion: "sad")
@@ -39,8 +31,8 @@ class ViewController: UIViewController {
         let jake = Journal(id: 3, title: "Homesick", content: "I am feeling very homesick", emotion: "homesick")
         let noah = Journal(id: 285, title: "Stressed", content: "I feel very stressed and overwhelmed", emotion: "stressed")
         journals = [simon, allen, irene, jake, noah]
-//
-//        getJournals()
+
+        getJournals()
         
         if #available(iOS 10.0, *) {
             journalTable.refreshControl = refresh
@@ -49,6 +41,11 @@ class ViewController: UIViewController {
         }
         
         refresh.addTarget(self, action: #selector(refreshJournals), for: .valueChanged)
+        
+        journalTable.backgroundColor = .clear
+        journalTable.backgroundView = nil
+        journalTable.layer.borderColor = .none
+        journalTable.layer.borderWidth = 0
         
         journalTable.delegate = self
         journalTable.dataSource = self
@@ -62,7 +59,7 @@ class ViewController: UIViewController {
             make.width.equalToSuperview().multipliedBy(0.8)
             make.height.equalToSuperview().offset(-100)
             make.centerX.equalToSuperview()
-            make.top.equalToSuperview().offset(120)
+            make.top.equalTo(add).offset(70)
         }
     }
     
@@ -125,6 +122,8 @@ extension ViewController: UITableViewDataSource{
         let journal = tableView.dequeueReusableCell(withIdentifier: "journalCell", for: indexPath) as! JournalViewCell
         let journalModel = journals[indexPath.row]
         journal.configure(journal: journalModel)
+        journal.backgroundView = nil
+        journal.backgroundColor = .clear
         return journal
     }
 }
