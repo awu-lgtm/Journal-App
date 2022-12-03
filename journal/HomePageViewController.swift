@@ -11,6 +11,8 @@ class HomePageViewController: Overlay {
     
     var profileImageView = UIImageView()
     var titleLabel = UILabel()
+    let homeButton = UIButton()
+    let loginButton = UIButton()
 
 
     override func viewDidLoad() {
@@ -29,6 +31,22 @@ class HomePageViewController: Overlay {
         profileImageView.layer.cornerRadius = 20
         view.addSubview(profileImageView)
         
+        homeButton.setTitle("Home Page", for: .normal)
+        homeButton.addTarget(self, action: #selector(pushView), for: .touchUpInside)
+        homeButton.setTitleColor(.white, for: .normal)
+        homeButton.backgroundColor = .systemBlue
+        homeButton.layer.cornerRadius = 15
+        homeButton.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(homeButton)
+        
+        loginButton.setTitle("Login", for: .normal)
+        loginButton.addTarget(self, action: #selector(push2View), for: .touchUpInside)
+        loginButton.setTitleColor(.white, for: .normal)
+        loginButton.backgroundColor = .systemBlue
+        loginButton.layer.cornerRadius = 15
+        loginButton.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(loginButton)
+        
         // profileImageView
         NSLayoutConstraint.activate([
             profileImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
@@ -42,6 +60,28 @@ class HomePageViewController: Overlay {
             titleLabel.topAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: 30),
             titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
+        
+        NSLayoutConstraint.activate([
+            homeButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            homeButton.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
+            homeButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5)
+        ])
+
+        NSLayoutConstraint.activate([
+           loginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+           loginButton.topAnchor.constraint(equalTo: homeButton.bottomAnchor, constant: 10),
+           loginButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5)
+        ])
+        
+    }
+    
+    
+    @objc func pushView() {
+        self.navigationController?.pushViewController(HomePageViewController(), animated: true)
+    }
+    
+    @objc func push2View() {
+        self.navigationController?.pushViewController(Login(), animated: true)
     }
 
 }
