@@ -10,12 +10,17 @@ import Alamofire
 
 
 class NetworkManager {
+    
+    static var auth = "Bearer "
 
-    static let host = ""
+    static let host = "34.150.206.225"
 
     static func getAll(completion: @escaping (Journals) -> Void) {
         let endpoint = "\(host)/api/entries"
-        AF.request(endpoint, method: .get).validate().responseData { response in
+        
+        let header: HTTPHeaders = [.authorization(bearerToken: auth)]
+        
+        AF.request(endpoint, method: .get, headers: header).validate().responseData { response in
             switch response.result {
             case .success(let data):
                 let jsonDecoder = JSONDecoder()
@@ -32,13 +37,17 @@ class NetworkManager {
     }
 
 
-    static func create(body: String, completion: @escaping (Journal) -> Void) {
-        let endpoint = "\(host)/tasks/"
+    static func create(title: String, content: String, emotion: String, completion: @escaping (Journal) -> Void) {
+        let endpoint = "\(host)/api/entries"
         let params = [
-            "description": body
+            "title": title,
+            "content": content,
+            "emotion": emotion
         ]
         
-        AF.request(endpoint, method: .post, parameters: params, encoding: JSONEncoding.default).validate().responseData {
+        let header: HTTPHeaders = [.authorization(bearerToken: auth)]
+        
+        AF.request(endpoint, method: .post, parameters: params, encoding: JSONEncoding.default, headers: header).validate().responseData {
             response in
                 switch response.result {
                 case .success(let data):
@@ -56,8 +65,10 @@ class NetworkManager {
     }
     
     static func delete(id: String, completion: @escaping (Journal) -> Void) {
-        let endpoint = "\(host)/tasks/\(id)/"
-        AF.request(endpoint, method: .delete).validate().responseData {
+        let endpoint = "\(host)/api/entries/\(id)/"
+        
+        let header: HTTPHeaders = [.authorization(bearerToken: auth)]
+        AF.request(endpoint, method: .delete, headers: header).validate().responseData {
             response in
                 switch response.result {
                 case .success(let data):
@@ -74,14 +85,16 @@ class NetworkManager {
         }
     }
     
-    static func update(id: String, body: String, completion: @escaping (Journal) -> Void) {
-        let endpoint = "\(host)/tasks/\(id)/"
+    static func update(journal: Journal, completion: @escaping (Journal) -> Void) {
+        let endpoint = "\(host)/api/entries/\(journal.id)/"
+        let header: HTTPHeaders = [.authorization(bearerToken: auth)]
         let params = [
-            "description": body,
-            "done": true
-        ] as [String : Any]
+            "title": journal.title,
+            "content": journal.content,
+            "emotion": journal.emotion
+        ]
         
-        AF.request(endpoint, method: .post, parameters: params, encoding: JSONEncoding.default).validate().responseData {
+        AF.request(endpoint, method: .post, parameters: params, encoding: JSONEncoding.default, headers: header).validate().responseData {
             response in
                 switch response.result {
                 case .success(let data):
@@ -98,12 +111,12 @@ class NetworkManager {
         }
     }
     
-    static func login(id: String, body: String, completion: @escaping (Journal) -> Void) {
-        let endpoint = "\(host)/tasks/\(id)/"
+    static func login(username: String, password: String, completion: @escaping (User) -> Void) {
+        let endpoint = "\(host)/login"
         let params = [
-            "description": body,
-            "done": true
-        ] as [String : Any]
+            "email": username,
+            "password": password,
+        ]
         
         AF.request(endpoint, method: .post, parameters: params, encoding: JSONEncoding.default).validate().responseData {
             response in
@@ -111,7 +124,31 @@ class NetworkManager {
                 case .success(let data):
                     let jsonDecoder = JSONDecoder()
                     
-                    if let userResponse = try? jsonDecoder.decode(Journal.self, from: data) {
+                    if let userResponse = try? jsonDecoder.decode(User.self, from: data) {
+                        completion(userResponse)
+                    } else {
+                        print("Failed to decode update")
+                    }
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+        }
+    }
+    
+    static func register(username: String, password: String, completion: @escaping (User) -> Void) {
+        let endpoint = "\(host)/register"
+        let params = [
+            "email": username,
+            "password": password,
+        ]
+        
+        AF.request(endpoint, method: .post, parameters: params, encoding: JSONEncoding.default).validate().responseData {
+            response in
+                switch response.result {
+                case .success(let data):
+                    let jsonDecoder = JSONDecoder()
+                    
+                    if let userResponse = try? jsonDecoder.decode(User.self, from: data) {
                         completion(userResponse)
                     } else {
                         print("Failed to decode update")

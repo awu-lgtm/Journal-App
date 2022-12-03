@@ -26,25 +26,29 @@ class ViewController: UIViewController {
         
         add.setImage(UIImage(named: "add"), for: .normal)
         
-        swiftAnimationView = .init(name: "heart")
-        view.addSubview(swiftAnimationView)
+//        swiftAnimationView = .init(name: "heart")
+//        view.addSubview(swiftAnimationView)
         
         
         title = "My Journals"
         view.backgroundColor = .white
         
-        let simon = Journal(id: 2758, title: "Happy", description: "I am feeling happy :)", mood: "happy")
-        let allen = Journal(id: 4, title: "Sad", description: "I am feeling sad :(", mood: "sad")
-        let irene = Journal(id: 598, title: "Excited", description: "I am feeling so excited!", mood: "excited")
-        let jake = Journal(id: 3, title: "Homesick", description: "I am feeling very homesick", mood: "homesick")
-        let noah = Journal(id: 285, title: "Stressed", description: "I feel very stressed and overwhelmed", mood: "stressed")
-        journals = [simon, allen, irene, jake, noah]
+//        let simon = Journal(id: 2758, title: "Happy", description: "I am feeling happy :)", mood: "happy")
+//        let allen = Journal(id: 4, title: "Sad", description: "I am feeling sad :(", mood: "sad")
+//        let irene = Journal(id: 598, title: "Excited", description: "I am feeling so excited!", mood: "excited")
+//        let jake = Journal(id: 3, title: "Homesick", description: "I am feeling very homesick", mood: "homesick")
+//        let noah = Journal(id: 285, title: "Stressed", description: "I feel very stressed and overwhelmed", mood: "stressed")
+//        journals = [simon, allen, irene, jake, noah]
+        
+        getJournals()
         
         if #available(iOS 10.0, *) {
             journalTable.refreshControl = refresh
         } else {
             journalTable.addSubview(refresh)
         }
+        
+        refresh.addTarget(self, action: #selector(refreshJournals), for: .valueChanged)
         
         journalTable.delegate = self
         journalTable.dataSource = self
@@ -60,15 +64,30 @@ class ViewController: UIViewController {
             make.centerX.equalToSuperview()
             make.top.equalToSuperview().offset(120)
         }
-        
-        for family in UIFont.familyNames {
-                print("family:", family)
-                for font in UIFont.fontNames(forFamilyName: family) {
-                    print("font:", font)
-                }
-            }
     }
-
+    
+    func getJournals() {
+        NetworkManager.getAll { journals in
+            self.journals = journals.journals
+            
+            DispatchQueue.main.async {
+                self.journalTable.reloadData()
+            }
+        }
+    }
+    
+    @objc
+    func refreshJournals() {
+        getJournals()
+        self.refresh.endRefreshing()
+    }
+    
+    @objc
+    func deleteJournal(id: Int) {
+        NetworkManager.delete(id: String(id)) { journal in
+            return
+        }
+    }
 
 }
 
@@ -90,6 +109,7 @@ extension ViewController: UITableViewDelegate{
         if editingStyle == .delete {
             journals.remove(at: indexPath.row)
             journalTable.beginUpdates()
+            deleteJournal(id: journals[indexPath.row].id)
             journalTable.deleteRows(at: [indexPath], with: .automatic)
             journalTable.endUpdates()
         }

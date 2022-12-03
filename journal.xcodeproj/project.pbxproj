@@ -13,6 +13,7 @@
 		B61458AF2934594C0080D1F9 /* JournalViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61458AE2934594C0080D1F9 /* JournalViewCell.swift */; };
 		B614ACBC293AE89100D482BF /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = B614ACBB293AE89100D482BF /* Login.swift */; };
 		B614ACBE293AF76300D482BF /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B614ACBD293AF76300D482BF /* NetworkManager.swift */; };
+		B614ACC0293AF96C00D482BF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B614ACBF293AF96C00D482BF /* User.swift */; };
 		B618FA27293AD64A00481448 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B618FA26293AD64A00481448 /* TabBarController.swift */; };
 		B6726D922939A18B004456F1 /* Overlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6726D912939A18B004456F1 /* Overlay.swift */; };
 		B6726D942939A5FD004456F1 /* OverlayWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6726D932939A5FD004456F1 /* OverlayWindow.swift */; };
@@ -37,6 +38,7 @@
 		B61458AE2934594C0080D1F9 /* JournalViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalViewCell.swift; sourceTree = "<group>"; };
 		B614ACBB293AE89100D482BF /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		B614ACBD293AF76300D482BF /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		B614ACBF293AF96C00D482BF /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B618FA26293AD64A00481448 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		B6726D912939A18B004456F1 /* Overlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Overlay.swift; sourceTree = "<group>"; };
 		B6726D932939A5FD004456F1 /* OverlayWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayWindow.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				B61458AA293452850080D1F9 /* Journal.swift */,
 				B614ACBB293AE89100D482BF /* Login.swift */,
 				B614ACBD293AF76300D482BF /* NetworkManager.swift */,
+				B614ACBF293AF96C00D482BF /* User.swift */,
 				B69EF57D2934514600A0C14F /* Main.storyboard */,
 				B69EF5802934514700A0C14F /* Assets.xcassets */,
 				B69EF5822934514700A0C14F /* LaunchScreen.storyboard */,
@@ -246,6 +249,7 @@
 				B618FA27293AD64A00481448 /* TabBarController.swift in Sources */,
 				B6726D9A2939C450004456F1 /* NewEntry.swift in Sources */,
 				B6726D942939A5FD004456F1 /* OverlayWindow.swift in Sources */,
+				B614ACC0293AF96C00D482BF /* User.swift in Sources */,
 				B61458AF2934594C0080D1F9 /* JournalViewCell.swift in Sources */,
 				B69EF57C2934514600A0C14F /* ViewController.swift in Sources */,
 				B6726D962939A87B004456F1 /* Feeling.swift in Sources */,

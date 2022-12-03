@@ -10,16 +10,15 @@ import Foundation
 struct Journal: Codable {
     let id: Int
     let title: String
-    let description: String
-    let mood: String
-    var favorite: Bool = false
+    let content: String
+    let emotion: String
+    
     
     enum CodingKeys: String, CodingKey {
         case id
         case title
-        case description
-        case mood
-        case favorite
+        case content
+        case emotion
     }
 }
 

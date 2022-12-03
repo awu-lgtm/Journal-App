@@ -52,7 +52,7 @@ class Overlay: UIViewController {
         
     @objc
     func newEntry() {
-        navigationController?.setViewControllers([Feeling()], animated: true)
+        navigationController?.pushViewController(Feeling(), animated: true)
     }
     
 

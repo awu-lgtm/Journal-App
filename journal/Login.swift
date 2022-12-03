@@ -16,8 +16,6 @@ class Login: UIViewController {
     
     let login = UIButton()
     let signUp = UIButton()
-    
-    public var auth = "bearer "
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,12 +68,19 @@ class Login: UIViewController {
     
     @objc
     func createAccount() {
-        
+        if (username.text == nil || password.text == nil) {
+            return
+        }
+        NetworkManager.register(username: username.text ?? "", password: password.text ?? "") { user in
+            NetworkManager.auth = "Bearer \(user.session)"
+        }
     }
     
     @objc
     func newLogin() {
-        
+        NetworkManager.login(username: username.text ?? "", password: password.text ?? "") { user in
+            NetworkManager.auth = "Bearer \(user.session)"
+        }
     }
 
     
@@ -91,5 +96,3 @@ class Login: UIViewController {
     */
 
 }
-
-struct

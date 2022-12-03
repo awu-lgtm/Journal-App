@@ -28,8 +28,7 @@ class NewEntry: Entry {
     @objc
     override func endEdit() { // this may be illegal
         super.endEdit()
-        // network manager post request
-        // redirects to Journal View controller
+        NetworkManager.create(title: )
     }
     
 
