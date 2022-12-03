@@ -7,7 +7,7 @@
 
 import UIKit
 
-class Login: UIViewController {
+class Login: Overlay {
     
     let text = UILabel()
     let box = UIImage(named: "loginBox")
@@ -31,6 +31,7 @@ class Login: UIViewController {
         }
         
         setUpFields()
+        setUpConstraints()
 
         // Do any additional setup after loading the view.
     }
@@ -81,6 +82,18 @@ class Login: UIViewController {
         NetworkManager.login(username: username.text ?? "", password: password.text ?? "") { user in
             NetworkManager.auth = "Bearer \(user.session)"
         }
+    }
+    
+    func setUpConstraints() {
+        NSLayoutConstraint.activate([
+            username.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            username.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+
+        NSLayoutConstraint.activate([
+            password.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            password.topAnchor.constraint(equalTo: username.bottomAnchor, constant: 10),
+        ])
     }
 
     
