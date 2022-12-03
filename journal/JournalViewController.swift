@@ -29,6 +29,10 @@ class JournalViewController: Entry { // this should extend Entry
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        des.text = journal.content
+        header.text = journal.title
+        textViewDidChange(des)
+        
         
         
 //        dropDown.anchorView = edit// UIView or UIBarButtonItem

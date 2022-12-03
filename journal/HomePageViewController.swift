@@ -33,16 +33,19 @@ class HomePageViewController: Overlay {
         
         homeButton.setTitle("Home Page", for: .normal)
         homeButton.addTarget(self, action: #selector(pushView), for: .touchUpInside)
-        homeButton.setTitleColor(.white, for: .normal)
-        homeButton.backgroundColor = .systemBlue
+        homeButton.setTitleColor(.black, for: .normal)
+        homeButton.setBackgroundImage(UIImage(named: "Login box"), for: .normal)
         homeButton.layer.cornerRadius = 15
         homeButton.translatesAutoresizingMaskIntoConstraints = false
+//        if (NetworkManager.auth == "Bearer ") {
+//            homeButton.isHidden = true
+//        }
         view.addSubview(homeButton)
         
         loginButton.setTitle("Login", for: .normal)
         loginButton.addTarget(self, action: #selector(push2View), for: .touchUpInside)
-        loginButton.setTitleColor(.white, for: .normal)
-        loginButton.backgroundColor = .systemBlue
+        loginButton.setTitleColor(.black, for: .normal)
+        loginButton.setBackgroundImage(UIImage(named: "Login box"), for: .normal)
         loginButton.layer.cornerRadius = 15
         loginButton.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(loginButton)
@@ -77,7 +80,7 @@ class HomePageViewController: Overlay {
     
     
     @objc func pushView() {
-        self.navigationController?.pushViewController(HomePageViewController(), animated: true)
+        self.navigationController?.pushViewController(ViewController(), animated: true)
     }
     
     @objc func push2View() {

@@ -33,14 +33,14 @@ class ViewController: UIViewController {
         title = "My Journals"
         view.backgroundColor = .white
         
-//        let simon = Journal(id: 2758, title: "Happy", description: "I am feeling happy :)", mood: "happy")
-//        let allen = Journal(id: 4, title: "Sad", description: "I am feeling sad :(", mood: "sad")
-//        let irene = Journal(id: 598, title: "Excited", description: "I am feeling so excited!", mood: "excited")
-//        let jake = Journal(id: 3, title: "Homesick", description: "I am feeling very homesick", mood: "homesick")
-//        let noah = Journal(id: 285, title: "Stressed", description: "I feel very stressed and overwhelmed", mood: "stressed")
-//        journals = [simon, allen, irene, jake, noah]
-        
-        getJournals()
+        let simon = Journal(id: 2758, title: "Happy", content: "I am feeling happy :)", emotion: "happy")
+        let allen = Journal(id: 4, title: "Sad", content: "I am feeling sad :(", emotion: "sad")
+        let irene = Journal(id: 598, title: "Excited", content: "I am feeling so excited!", emotion: "excited")
+        let jake = Journal(id: 3, title: "Homesick", content: "I am feeling very homesick", emotion: "homesick")
+        let noah = Journal(id: 285, title: "Stressed", content: "I feel very stressed and overwhelmed", emotion: "stressed")
+        journals = [simon, allen, irene, jake, noah]
+//
+//        getJournals()
         
         if #available(iOS 10.0, *) {
             journalTable.refreshControl = refresh
@@ -98,7 +98,7 @@ extension ViewController: UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         index = indexPath.row
-        present(JournalViewController(delegate: self), animated:true, completion: nil)
+        navigationController?.pushViewController(JournalViewController(delegate: self), animated:true)
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
