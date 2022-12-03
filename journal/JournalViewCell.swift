@@ -13,9 +13,9 @@ class JournalViewCell: UITableViewCell {
     var id = UILabel()
     var title = UILabel()
     var des = UILabel()
-    let favorite = UIButton()
-    var favorited = false
-    var swiftAnimationView: LottieAnimationView!
+//    let favorite = UIButton()
+//    var favorited = false
+//    var swiftAnimationView: LottieAnimationView!
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -44,39 +44,38 @@ class JournalViewCell: UITableViewCell {
             make.left.equalTo(title)
         }
         
-        swiftAnimationView = .init(name: "heart")
-        contentView.addSubview(swiftAnimationView)
-        
-        swiftAnimationView.snp.makeConstraints { (make) -> Void in
-            make.width.equalToSuperview().multipliedBy(0.5)
-            make.height.equalTo(contentView.snp.width)
-            make.trailing.equalToSuperview().offset(50)
-            make.centerY.equalToSuperview()
-        }
-        
-        favorite.translatesAutoresizingMaskIntoConstraints = false
-        favorite.addTarget(self, action: #selector(addFavorite), for: .touchUpInside)
-        contentView.addSubview(favorite)
-        
-//        favorite.backgroundColor = .black
-        favorite.snp.makeConstraints { (make) -> Void in
-            make.width.equalToSuperview().multipliedBy(0.1)
-            make.height.equalToSuperview().multipliedBy(0.2)
-            make.trailing.equalToSuperview().offset(-30)
-            make.centerY.equalToSuperview()
-        }
+//        swiftAnimationView = .init(name: "heart")
+//        contentView.addSubview(swiftAnimationView)
+//        
+//        swiftAnimationView.snp.makeConstraints { (make) -> Void in
+//            make.width.equalToSuperview().multipliedBy(0.5)
+//            make.height.equalTo(contentView.snp.width)
+//            make.trailing.equalToSuperview().offset(50)
+//            make.centerY.equalToSuperview()
+//        }
+//        
+//        favorite.translatesAutoresizingMaskIntoConstraints = false
+//        favorite.addTarget(self, action: #selector(addFavorite), for: .touchUpInside)
+//        contentView.addSubview(favorite)
+//        
+////        favorite.backgroundColor = .black
+//        favorite.snp.makeConstraints { (make) -> Void in
+//            make.width.equalToSuperview().multipliedBy(0.1)
+//            make.height.equalToSuperview().multipliedBy(0.2)
+//            make.trailing.equalToSuperview().offset(-30)
+//            make.centerY.equalToSuperview()
     }
     
-    @objc
-    func addFavorite() {
-        if (favorited) {
-            swiftAnimationView.play(fromFrame:141, toFrame: 150)
-        }
-        else {
-            swiftAnimationView.play(fromFrame:58, toFrame: 108)
-        }
-        favorited.toggle()
-    }
+//    @objc
+//    func addFavorite() {
+//        if (favorited) {
+//            swiftAnimationView.play(fromFrame:141, toFrame: 150)
+//        }
+//        else {
+//            swiftAnimationView.play(fromFrame:58, toFrame: 108)
+//        }
+//        favorited.toggle()
+//    }
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -85,9 +84,8 @@ class JournalViewCell: UITableViewCell {
 
     
     func configure(journal: Journal) {
-        des.text = journal.description
+        des.text = journal.content
         title.text = journal.title
-        favorited = journal.favorite
     }
 
     required init?(coder: NSCoder) {

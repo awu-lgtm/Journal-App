@@ -64,7 +64,7 @@ class JournalViewController: Entry { // this should extend Entry
     @objc
     override func endEdit() {
         super.endEdit()
-        delegate?.setJournal(journal: Journal(id: journal.id, title: header.text ?? "Today", description: des.text, mood: journal.mood))
+        delegate?.setJournal(journal: Journal(id: journal.id, title: header.text ?? "Today", content: des.text, emotion: journal.emotion))
     }
 }
 

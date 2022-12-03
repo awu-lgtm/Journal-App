@@ -28,7 +28,9 @@ class NewEntry: Entry {
     @objc
     override func endEdit() { // this may be illegal
         super.endEdit()
-        NetworkManager.create(title: )
+        NetworkManager.create(title: header.text ?? "", content: des.text ?? "", emotion: titleMood.text ?? "happy") { journal in
+            return
+        }
     }
     
 
