@@ -53,19 +53,21 @@ class Login: Overlay {
     }
     
     func setUpLogin() {
-        login.setTitle("login", for: .normal)
         login.setBackgroundImage(UIImage(named: "button border"), for: .normal)
+        login.setTitle("login", for: .normal)
         login.addTarget(self, action: #selector(newLogin), for: .touchUpInside)
-        login.titleLabel?.textColor = .black
+        login.setTitleColor(.black, for:. normal)
         
         login.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(login)
     }
     
     func setUpSignUp() {
-        signUp.setTitle("sign up", for: .normal)
         signUp.setBackgroundImage(UIImage(named: "button border"), for: .normal)
+        signUp.setTitle("sign up", for: .normal)
         signUp.addTarget(self, action: #selector(signUps), for: .touchUpInside)
+        signUp.setTitleColor(.black, for:. normal)
+        
         
         signUp.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(signUp)
@@ -74,6 +76,8 @@ class Login: Overlay {
     @objc
     func signUps() {
         text.text = "sign up"
+        login.isHidden = true
+
         signUp.addTarget(self, action: #selector(createAccount), for: .touchUpInside)
     }
     
